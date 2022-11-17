@@ -18,3 +18,28 @@
 	}
 
 }
+
+@media only screen and (min-width: 320px) and (max-width: 568px){
+
+	#index {
+
+		.nav {
+			border-bottom: solid 3.5px #d4cbe5;
+			background-color: #3e885b;
+			height: 30px;
+			padding-top: 15px;
+		}
+
+		.title {
+			text-align: center;	
+			color: red;
+		}
+
+		.alignC {
+			margin-top: 10px;
+			text-align: center;
+		}
+
+	}
+
+}
