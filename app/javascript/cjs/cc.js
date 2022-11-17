@@ -3,7 +3,7 @@
 const collection = document.getElementsByClassName("title"); //.innerHTML = "Rails7.0";
 collection[0].innerHTML = "Rails 7.0";
 
-// document.write("My message"); 
+// document.write("My message");  
 
 function r_test(){
 	console.log("try for public index");
@@ -14,3 +14,4 @@ function function_test(params) {
   console.log(params);
 }
 
+ 
