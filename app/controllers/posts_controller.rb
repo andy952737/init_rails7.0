@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :find_post, :only => [:show, :edit, :update, :destroy]
 
   def index
-    puts "check index"
+    puts "check index" 
     puts params[:q]
 
     @posts = Post.all
@@ -15,14 +15,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    #@Post.destroy
-    #redirect_to url_for(action: :index)
-  end
+  end 
 
   def edit
   end
 
-  def create
+  def create 
     puts "check post" 
     title = params[:post][:title]
     contact = params[:post][:contact]
@@ -30,9 +28,12 @@ class PostsController < ApplicationController
     post_create = Post.create(params_post_permit)
 
     redirect_to url_for(action: :index)  
-  end
+  end 
 
   def update
+    puts "check update"
+    @Post.update(params_post_permit)
+    redirect_to url_for(action: :index)
   end 
 
   def destroy

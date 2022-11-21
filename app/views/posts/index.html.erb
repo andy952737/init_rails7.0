@@ -1,8 +1,13 @@
-<div id="post_index">
+<%# http://localhost:3000/rails/info/routes %>
+<%# rails view form, https://guides.rubyonrails.org/form_helpers.html  %>
+<%= render partial: "banner", locals: {
+	content: "我是內容", 
+	notice: "test"
+} %>
+<%= content_tag :div, id: "post_index" do %>
 	<h1 class="post_title">
 		<%= link_to "Rails 7.0 for CRUD Test", posts_path %>
 	</h1>
-	<p></p>
 	<hr>
 	<%= form_tag(url_for(action: :index), method: "get") do %>
 	 <%= label_tag(:q, "Search for:") %>
@@ -12,28 +17,39 @@
 	<hr>
 	<%= form_tag(posts_path, method: :post, multipart: false) do %>
 		<%= text_field_tag 'post[title]', "", class: 'form-control' %>
-		<%= text_area_tag('post[contact]', "Hi, nice site", size: "24x6") %>
+		<%= text_area_tag('post[contact]', "", size: "24x6") %>
 		<%= submit_tag("Check Ok") %>	
-	<% end %>
+	<% end %> 
 	<hr>
 	posts datas <br>
-	<% @posts.each do |post| %>
-		<%= post.title %> 
-		<%= post.contact %>
-		<%= link_to "查看", post_path(post) %> 
-		<%= link_to "編輯", edit_post_path(post) %> 
-		<%= link_to "Delete", post_path(post), class: "button",
-              data: { turbo_method: :delete, turbo_confirm: "Really?!?" } %>
-       	<%# button_to 'Destroy', post_path(post), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
-		<%# link_to "刪除", post_path(post), method: "delete", data: {confirm: "delete, you are sure?"} %>
-		<!-- <a href="/posts/destroy/<%# post.id %>" method="delete">刪除</a> -->
-		<%# link_to("刪除", { :controller => "posts", :action => "destroy", :id => post }) %>
-		<%# link_to post_path(post), method: :delete, class:  "btn btn-danger btn-xs", confirm:  "Are you sure ?" do %>
-           <!-- <i class="fa fa-trash-o"></i>  -->
-     	<%# end %>    
-	<% end %>
+	<table class="post_table">
+		<tr>
+			<th colspan="" rowspan="" headers="" scope="">Sn</th>
+			<th colspan="" rowspan="" headers="" scope="">Title</th>
+			<th colspan="" rowspan="" headers="" scope="">Contact</th>
+			<th colspan="" rowspan="" headers="" scope=""></th>
+		</tr> 
+		<% @posts.each do |post| %>		
+		<tr>
+			<td colspan="" rowspan="" headers=""><%= post.id %> </td>
+			<td colspan="" rowspan="" headers=""><%= post.title %> </td>
+			<td colspan="" rowspan="" headers=""><%= post.contact %></td>
+			<td colspan="" rowspan="" headers="">
+				<%= link_to "查看", post_path(post) %> 、 
+				<%= link_to "編輯", edit_post_path(post) %> 、
+				<%= link_to "Delete", post_path(post), class: "button", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+			    <%# button_to 'Destroy', post_path(post), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+				<%# link_to post_path(post), method: :delete, class:  "btn btn-danger btn-xs", confirm:  "Are you sure ?" do %>
+		           <!-- <i class="fa fa-trash-o"></i>  -->
+		     	<%# end %>  
+			</td>
+		</tr>
+		<% end %>
+	</table>
 	<hr>
+	<% if false %>
 	<p>
     	<%= link_to "New posts", new_post_path %>
 	</p>
-</div>
+	<% end %>
+<% end %>
