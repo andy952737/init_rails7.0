@@ -4,7 +4,7 @@ import "controllers"
 import "cjs/cc"
 
 // import "jquery"
-// import "jquery_ujs"
+// import "jquery_ujs" 
 // import "popper"
 // import "bootstrap"
 
