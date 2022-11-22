@@ -5,3 +5,4 @@
 - 原生JS
 
 # CRUD 初始設定 for posts models
+- note

@@ -2,8 +2,23 @@
 <%# rails view form, https://guides.rubyonrails.org/form_helpers.html  %>
 <%= render partial: "banner", locals: {
 	content: "我是內容", 
-	notice: "test"
+	notice: "test"	
 } %>
+
+
+<%# hash技巧 https://pjchender.dev/ruby-on-rails/ruby-hash/ %>
+<% my_default_hash = Hash.new{ |h, k| h[k] = { video_counts: 0, device_counts: 0 } } %>
+<%# my_hash = {} %>
+<%
+	hash = {
+	  image: {
+	    '1x': 'v6/customer_brands/openstack.png',
+	    '2x': 'v6/customer_brands/openstack@2x.png'
+	  } 
+	}
+%>
+<%# hash[:image][:'1x']  %>
+
 <%= content_tag :div, id: "post_index" do %>
 	<%= content_tag :h1, class: "post_title" do %>
 		<%= link_to "Rails 7.0 for CRUD Test", posts_path %>
