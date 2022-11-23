@@ -6,3 +6,8 @@
 
 # CRUD 初始設定 for posts models
 - note
+
+# 初始頁面架構
+- backend後台
+- posts_CRUD
+- public前台
