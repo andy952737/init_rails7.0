@@ -6,6 +6,7 @@ pin "@hotwired/stimulus", to: "stimulus.min.js", preload: true
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin_all_from "app/javascript/cjs", under: "cjs" 
+pin_all_from "app/javascript/backend", under: "backend"
 
 #pin "jquery", to: "jquery.min.js", preload: true
 #pin "jquery_ujs", to: "jquery_ujs.js", preload: true

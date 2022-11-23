@@ -2,6 +2,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "cjs/cc"
+import "backend/index"
 
 // import "jquery"
 // import "jquery_ujs" 
@@ -18,8 +19,3 @@ import "cjs/cc"
 // 	console.log("jquery for working");
 
 // });
-
-
-
-
-
