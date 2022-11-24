@@ -84,6 +84,6 @@ group :test do
 end
 
 
-gem "jquery-rails"
-gem "bootstrap"
+#gem "jquery-rails"
+#gem "bootstrap"
 gem "sass-rails"
