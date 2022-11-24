@@ -1,8 +1,9 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
 import "controllers"
-import "cjs/cc"
-import "backend/index"
+//import "cjs/cc" 
+
+//import "backend/index"
 
 // import "jquery"
 // import "jquery_ujs" 
@@ -19,3 +20,6 @@ import "backend/index"
 // 	console.log("jquery for working");
 
 // });
+
+//alert("data-turbo-js");
+

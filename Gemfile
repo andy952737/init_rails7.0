@@ -66,7 +66,14 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
-
+  gem 'capistrano', '~> 3.1'
+  gem 'capistrano-delayed-job', '~> 1.0'
+  gem 'capistrano-rails' #, :group => :development
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+  gem 'capistrano-passenger'
+  gem 'capistrano-yarn' 
+  gem 'capistrano3-puma'
 end
 
 group :test do
@@ -77,6 +84,6 @@ group :test do
 end
 
 
-#gem "jquery-rails"
-#gem "bootstrap"
+gem "jquery-rails"
+gem "bootstrap"
 gem "sass-rails"

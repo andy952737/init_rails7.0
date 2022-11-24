@@ -1,4 +1,5 @@
 import { Application } from "@hotwired/stimulus"
+import { Turbo, cable } from "@hotwired/turbo-rails"
 
 const application = Application.start()
 
@@ -7,5 +8,3 @@ application.debug = false
 window.Stimulus   = application
 
 export { application }
-
-

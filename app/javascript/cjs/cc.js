@@ -14,4 +14,4 @@ function function_test(params) {
     console.log(params);
 }
 
-//alert('test');
+alert('test');

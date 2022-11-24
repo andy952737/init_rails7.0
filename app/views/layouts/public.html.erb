@@ -9,11 +9,13 @@
     <%# 使用css %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
-    <%# 使用js %>
-    <%= javascript_importmap_tags %>
+    <%# 使用js %> 
+    <%= javascript_importmap_tags %>  
     <%= javascript_include_tag "cjs/cc", "data-turbo-track": "reload" %>
-    <%# javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  </head>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+    <%# javascript_include_tag "backend/index", "data-turbo-track": "reload" %>
+    <%# , "data-turbolinks-track": "reload", defer: true %>
+  </head> 
   <body>
     <%= yield %>
   </body>

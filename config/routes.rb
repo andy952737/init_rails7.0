@@ -6,14 +6,9 @@ Rails.application.routes.draw do
   resources :posts 
   
   # 後台
-  get 'backend/index'
-  
   #Backend routes  
   namespace :backend do 
     resources :posts
-    # namespace :backend do
-    #   get 'posts/index'
-    # end
   end 
   resources :backend 
 
