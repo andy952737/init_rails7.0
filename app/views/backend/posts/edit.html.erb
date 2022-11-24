@@ -1,0 +1,6 @@
+Edit (Update) <br>
+<%= form_tag(url_for(action: :update), method: :patch, multipart: false) do %>
+	<%= text_field_tag 'post[title]', @Post.title, class: 'form-control' %>
+	<%= text_area_tag('post[contact]', @Post.contact, size: "24x6") %>
+	<%= submit_tag("Check Update Ok") %>	
+<% end %>

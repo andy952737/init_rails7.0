@@ -1,2 +1,46 @@
 <h1>Backend::Posts#index</h1>
-<p>Find me in app/views/backend/posts/index.html.erb</p>
+
+<%= content_tag :div, id: "post_index" do %>
+	<%= content_tag :h1, class: "post_title" do %>
+		<%= link_to "Rails 7.0 for CRUD Test", backend_posts_path %>
+	<% end %>
+	<%= content_tag :hr %>
+	<%= form_tag(url_for(action: :index), method: "get") do %>
+	 <%= label_tag(:q, "Search for:") %>
+	 <%= text_field_tag(:q) %>
+	 <%= submit_tag("搜尋") %> 
+	<% end %>
+	<%= content_tag :hr %>
+	posts datas <%= content_tag :br %>
+	<%= link_to "New", new_backend_post_path %>
+	<%= content_tag :table, class: "post_table" do %>
+		<%= content_tag :tr do %>
+			<th>Sn</th>
+			<th>Title</th>
+			<th>Contact</th>
+			<th></th>
+		<% end %>
+		<% @posts.each do |post| %>		
+			<%= content_tag :tr do %>
+				<td><%= post.id %> </td>
+				<td><%= post.title %> </td>
+				<td><%= post.contact %></td>
+				<td>
+					<%= link_to "查看", backend_post_path(post) %> 、 
+					<%= link_to "編輯", edit_backend_post_path(post) %> 、
+					<%= link_to "Delete", backend_post_path(post), class: "button", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+				    <%# button_to 'Destroy', post_path(post), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+					<%# link_to post_path(post), method: :delete, class:  "btn btn-danger btn-xs", confirm:  "Are you sure ?" do %>
+			           <!-- <i class="fa fa-trash-o"></i>  -->
+			     	<%# end %>  
+				</td>
+			<% end %>
+		<% end %>
+	<% end %>
+	<%= content_tag :hr %>
+	<% if false %>
+	<%= content_tag :p do %>
+    	<%= link_to "New posts", new_post_path %>
+	<% end %>
+	<% end %>
+<% end %>

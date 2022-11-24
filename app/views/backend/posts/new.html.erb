@@ -1,0 +1,6 @@
+<%= form_tag(backend_posts_path, method: :post, multipart: false) do %>
+	<%= text_field_tag 'post[title]', "", class: 'form-control' %>
+	<%= text_area_tag('post[contact]', "", size: "24x6") %>
+	<%= submit_tag("Check Ok") %>	
+<% end %> 
+<%= content_tag :hr %>
