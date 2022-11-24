@@ -13,5 +13,3 @@ function r_test() {
 function function_test(params) {
     console.log(params);
 }
-
-alert('test');
