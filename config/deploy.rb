@@ -1,8 +1,31 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.17.1"
 
-set :application, "my_app_name"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :application, "renew_code"
+set :repo_url, "git@github.com:andy952737/init_rails7.0.git"
+
+set :branch, ENV["REVISION"] || ENV["BRANCH_NAME"] || "main"      
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')    
+set :linked_dirs, fetch(:linked_dirs, []).push('log','public/uploads', 'tmp/pids', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle')  
+set :passenger_restart_with_touch, true      
+#  include /home/andy/open_house/current/ .htaccess   
+set :deploy_to, '/home/andy/init_rails7' # /home/andy/open_house/current/      
+set :rails_env, "production"               
+set :rvm_type, :andy      
+set :rvm_ruby_version, '3.0.0'   
+set :keep_releases, 5
+
+namespace :deploy do 
+    namespace :check do 
+      before :linked_files, :set_master_key do
+        on roles(:app), in: :sequence, wait: 10 do
+          unless test("[ -f #{shared_path}/config/master.key ]")
+            upload! 'config/master.key', "#{shared_path}/config/master.key"
+          end
+        end
+      end 
+    end
+end
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
