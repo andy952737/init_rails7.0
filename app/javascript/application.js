@@ -15,3 +15,8 @@ import "controllers"
 // 	//alert("jquery for working success!");
 // 	console.log("jquery for working");
 // });
+
+
+// Krpano JavaScript 接口对象
+
+

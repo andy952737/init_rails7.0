@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Live page</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <%# load public krpano.js %>
+    <script src="/krpano/pano.js"></script>  
+
+    <%= csrf_meta_tags %> 
+    <%= csp_meta_tag %>
+    
+    <%# 使用css %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <%# 使用 importmap & js %>
+    <%= javascript_importmap_tags %>  
+    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+  </head> 
+  <body>
+    <%= yield %>
+  </body>
+</html>

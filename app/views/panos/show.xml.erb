@@ -1,0 +1,116 @@
+<krpano id="krpanoSWFObject" onstart="startup();" showerrors="false"  version="1.20.9">  
+		<include url="/pano_files/plugins/webvr.xml" />
+		<!-- <include url="/krpano/videospot.xml" /> -->
+		<plugin name="WebVR" mobilevr_fake_support="true" /> 
+    	<textstyle name="TEXTSTYLE" font="Arial" fontsize="18" bold="true" background="false" border="false" textcolor="0xFFFFFF" effect="glow(0x000000);" textalign="center"/>  
+ 
+    	<!-- <autorotate enabled="true" waittime="5.0" speed="-3.0" horizon="0.0" tofov="120.0" />  -->
+
+  		<!-- <scene name='' scenetitle="" thumburl="" nowpic="" id="" onstart="">-->  
+		
+		<!-- 預設場景座標 -->       
+  		<view hlookat="50" vlookat="180" fov="50" maxpixelzoom="1.0" fovmax="150" limitview="auto" />  
+  		<!--  取得全景 && 使用迴圈 arrar撈資料      
+			<preview url='scene.preview_image_url' />  
+			<image type="CUBE" progressive="false"> 
+				<left url="scene.normal_image_urls[:left]" />      
+				<front url="scene.normal_image_urls[:front]" /> 
+				<right url="scene.normal_image_urls[:right]%>" />
+				<back url="scene.normal_image_urls[:back]%>" />  
+				<up url="scene.normal_image_urls[:up]" />
+				<down url="scene.normal_image_urls[:down]" />
+				<mobile>   
+					<left url="scene.mobile_image_urls[:left]" />
+					<front url="scene.mobile_image_urls[:front]" /> 
+					<right url="scene.mobile_image_urls[:right]" />
+					<back url="scene.mobile_image_urls[:back]" />
+					<up url="scene.mobile_image_urls[:up]" />
+					<down url="scene.mobile_image_urls[:down]" />
+				</mobile>
+			</image> -->  
+			<!-- 取得全景 -->         
+	    	<preview url="<%= @SceneImageURL %>"/>  
+			<image hfov="360.00" vfov="180.000000" voffset="0.00"> 
+				<sphere class="scene_change" url="<%= @SceneImageURL %>" />
+			</image>   
+
+			<%# if false %>  
+			<!-- <style name="icon_hotspot_style" url="/icon/icon_hotspot.png" edge="top" distorted="true"/>  -->
+		 	<!-- <hotspot class="addhotspot1" name="spot1" url="<%# @HotspotOne %>" ath="-0.900" atv="56.800" />  -->
+		 	<%# end %> 
+
+		    <!-- <hotspot name="spot7"
+		         url="/icon/icon_hotspot.png"
+		         ath="-15" atv="+12"
+		         onclick="js(test(aaa, bbb););" /> -->
+
+		    <!-- <hotspot name="spot7" 
+		         url="/icon/icon_hotspot.png"
+		         ath="-15" atv="+12" onclick="looktohotspot(get(name),65);"
+		         onloaded="do_crop_animation(64,64, 60);"
+		         ondown="draghotspot" />  -->
+
+			<!-- 	<hotspot name="spot7"
+			         url="/icon/icon_hotspot.png"
+			         ath="-0.900" atv="56.800"
+			         onhover="js(test(aaa, bbb););" /> -->
+			         <!-- onclick="js(test(aaa, bbb););" /> -->
+
+			<!-- the action for dragging the hotspot - call it once in the ondown event -->
+			<!--  Drag hotspot  -->
+			<!--  The screentosphere action will convert the x/y variables to the h/v variables and the spheretoscreen action the h/v variables to the x/y variables.  -->
+
+		 	<!-- <style name="spotstyle" />  -->
+			<!-- <hotspot url="/icon/icon_hotspot.png" name="spot1" ath="-0.900" atv="56.800" style="spotstyle"/> -->
+
+		 	<!-- pano 右鍵選單 --> 
+			<contextmenu fullscreen="false" versioninfo="false">
+				<item name="全螢幕" caption="全螢幕" enabled="true" separate="true" onclick="switch(fullscreen);"/> 
+				<item name="Powered by Andy Pano" caption="Powered by Andy Pano" enabled="true" separate="true" onclick="openurl('https://blog.codelove.online/')"/>      
+			</contextmenu>          
+  
+			<action name="add_hotspot">   
+					addhotspot(%1);
+					set(hotspot[%1].url,%2);
+					set(hotspot[%1].ath,%3);
+					set(hotspot[%1].atv,%4); 
+					set(hotspot[%1].onclick, click_hotspot(%1));
+					<!-- jscall("console.log('%1')"); 
+					jscall("console.log('%2')");
+					jscall("console.log('%3')");
+					jscall("console.log('%4')"); -->
+					<!-- set(hotspot[newspot].scale,0.7); -->
+					<!-- set(hotspot[newspot].zoom,true); -->
+			</action>    
+ 
+			<action name="click_hotspot">	      
+				jscall("console.log('%1')");
+				<!-- jscall("alert('%1')"); -->
+				<!-- jscall("test(%1)");   -->
+				<!-- js(test(%1)); -->
+				<!-- set(hotspot_h, get(hotspot[q_%1].ath));
+				set(hotspot_v, get(hotspot[q_%1].atv));	
+				spheretoscreen(hotspot_h, hotspot_v, mouse_x, mouse_y);   -->
+				<!-- js(PanoInterface.on_click_hotspot(%1, get(mouse_x), get(mouse_y), get(pano_id)));
+				jscall("console.log('xmlaction执行了')");  -->
+			</action>  
+
+			<!-- <action name="spot72">
+			  set(aa, '我是aa');
+			  js(test(get(aa), bb)); 
+			  jscall("test(1,2)");  
+			</action>   -->
+
+			<!-- <action name="xml_action" >
+			    jscall("console.log('xmlaction执行了')");
+			</action>  --> 
+
+			<memory maxmem="350" devices="Desktop+Flash" />
+			<memory maxmem="150" devices="Desktop+HTML5" />
+			<memory maxmem="50"  devices="Mobile|Tablet" />
+			<memory maxmem="40"  devices="iOS" />
+			<memory maxmem="50"  devices="iOS7.1" />
+			
+   	<!-- </scene> --> 
+
+</krpano>

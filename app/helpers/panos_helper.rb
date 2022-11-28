@@ -1,0 +1,2 @@
+module PanosHelper
+end
