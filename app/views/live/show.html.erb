@@ -8,4 +8,44 @@
 }
 </style>
 
-<div id="pano" class="vr-live"></div>  
+<!-- <div id="pano" class="vr-live"></div>   -->
+
+<!-- get & json 後端資料 --> 
+<div class="example" data-scenename="vr.jpg"
+				     data-friendly_id="so12345678">
+</div> 
+<!-- <div class="example" data-scenename="vr.jpg"></div>  -->
+
+<!-- krpano xml view for HTML -->
+<div id="pano" class="wrapper colorW vr-live"> 
+	<!-- scene image box -->
+	<div style="position: absolute; z-index: 99999; bottom: 0px;">
+		<img class="click_img_a" style="height: 80px; width: 80px;" src="/image/vr.jpg">
+		<img class="click_img_b" style="height: 80px; width: 80px;" src="/image/vr2.jpg">
+		<!-- <img class="click_img_c" style="height: 80px; width: 80px;" src="image/g1.jpg"> -->
+	</div>
+</div>
+
+<script>
+/* 引入krpano.js后获得的全局方法 */       
+embedpano({							 	 
+    id: "krpanoSWFObject",
+    swf: "/pano_files/pano.swf",          // flash模式下用到的swf文件，非必须
+    xml: "/krpano/krpano.xml",              // 全景图xml路径，用于描述整个全景图
+	target: "pano",                       // 挂载点id，唯一必须的参数
+    html5: "always",    
+	supportHoverInfoView: true,	    			     
+	//onready: krpanoReady  
+	onready() {         				  // 回调函数，类似的还有onerror  
+		var krpano = document.getElementById('krpanoSWFObject');
+		krpanoReady(krpano); 
+    }      
+});   
+
+function krpanoReady(get_krpano) {  
+
+	var krpano = get_krpano;     
+	// code ...	
+
+}	
+</script>
