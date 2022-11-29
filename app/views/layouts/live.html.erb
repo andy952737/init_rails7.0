@@ -16,8 +16,11 @@
     <%# 使用 importmap & js %>
     <%= javascript_importmap_tags %>  
     <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+
+    <%# javascript_include_tag "live/show" %>
   </head> 
   <body>
     <%= yield %>
   </body>
+  <%= javascript_include_tag "live/show", "data-turbo-track": "reload" %>
 </html>
