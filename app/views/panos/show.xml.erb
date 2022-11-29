@@ -2,7 +2,7 @@
 
 		<!--  scenes --> 
 		<action name="startup">
-			loadscene("scene1", null, MERGE, BLEND(0.5)); <!-- @scene.friendly_id -->
+			loadscene("scene3", null, MERGE, BLEND(0.5)); <!-- @scene.friendly_id -->
 		</action>    
 
 		<include url="/pano_files/plugins/webvr.xml" />
@@ -14,7 +14,7 @@
     	<!-- 這裡寫迴圈 -->
 
     	<% number = 1 %>
-		<% 7.times do %>
+		<% 3.times do %>
     	<scene name="scene<%= number %>"> 
     	<image hfov="360.00" vfov="180.000000" voffset="0.00"> 
     		<preview type="grid(cube,16,32,512,0xCCCCCC,0xF6F6F6,0x999999);" />
