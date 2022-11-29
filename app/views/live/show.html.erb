@@ -5,8 +5,11 @@
 <div id="pano" class="vr-live">   
 	<!-- scene image box -->
 	<div style="position: absolute; z-index: 99999; bottom: 0px;">
-		<img onclick="clickVrImage('sc12345','scene1')" class="click_img_a" data-ddd="vr123" style="height: 80px; width: 80px;" src="/image/vr.jpg">
-		<img onclick="clickVrImage('sc12345','scene2')" class="click_img_b" style="height: 80px; width: 80px;" src="/image/vr2.jpg">
+		<% number = 1 %>
+		<% 7.times do %>
+			<img onclick="clickVrImage('sc12345','scene<%= number %>')" class="click_img_a" data-ddd="vr123" style="height: 80px; width: 80px;" src="/image/<%= number %>.jpg">
+		<% number+=1 %>
+		<% end %>
 		<!-- <img class="click_img_c" style="height: 80px; width: 80px;" src="image/g1.jpg"> -->
 	</div> 
 </div>
