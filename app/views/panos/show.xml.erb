@@ -1,18 +1,19 @@
 <krpano id="krpanoSWFObject" onstart="startup();" showerrors="false"  version="1.20.9">  
 
 		<!--  scenes --> 
-		<action name="startup">
+		<action name="startup"> 
 			loadscene("scene3", null, MERGE, BLEND(0.5)); <!-- @scene.friendly_id -->
 		</action>    
 
 		<include url="/pano_files/plugins/webvr.xml" />
+
 		<!-- <include url="/krpano/videospot.xml" /> -->
 		<plugin name="WebVR" mobilevr_fake_support="true" /> 
     	<textstyle name="TEXTSTYLE" font="Arial" fontsize="18" bold="true" background="false" border="false" textcolor="0xFFFFFF" effect="glow(0x000000);" textalign="center"/>  
 
     	<view hlookat="50" vlookat="180" fov="50" maxpixelzoom="1.0" fovmax="150" limitview="auto" />  
     	<!-- 這裡寫迴圈 -->
-
+ 
     	<% number = 1 %>
 		<% 3.times do %>
     	<scene name="scene<%= number %>"> 
@@ -133,6 +134,16 @@
 			<memory maxmem="50"  devices="iOS7.1" />
 
 			<!-- krpano for action --> 
+			<action name="add_logo_hotspot"> 
+				<!-- addhotspot(%1);
+				set(hotspot[%1].url,%2);
+				set(hotspot[%1].ath,%3);
+				set(hotspot[%1].atv,%4);   -->
+				<!-- set(hotspot[%1].onclick, click_hotspot_move(%5)); -->
+				<!-- jscall("alert('logo')");   -->
+				<!-- jscall("add_hotspot('%1, %2, %3, %4, %5')");  -->
+			</action>     
+
 			<action name="add_hotspot">
 				addhotspot(%1);
 				set(hotspot[%1].url,%2);
@@ -141,7 +152,7 @@
 				set(hotspot[%1].onclick, click_hotspot_move(%5));
 				<!-- jscall("alert('%4')"); -->  
 				<!-- jscall("add_hotspot('%1, %2, %3, %4, %5')");  -->
-			</action>     
+			</action>    
 
 			<action name="to0">
 				loadscene("%1", null, MERGE, BLEND(0.5));
@@ -158,6 +169,29 @@
 			<action name="click_hotspot_move">	      
 				loadscene("%1", null, MERGE, BLEND(0.5));
 			</action>   
+
+			<action name="calclength" scope="localonly">
+				<!-- jscall("alert('hello world')"); -->
+			    get_polyline_length('hs_4m_masstab', l_4m);
+			    get_polyline_length(get(caller.name), l_Xm);
+			    calc(caller.linelength_in_m, l_Xm * 4 / l_4m);
+			    roundval(caller.linelength_in_m, 1);
+			    calc(caller.linelength_in_m, caller.linelength_in_m + 'm');
+			</action>
+			    
+			<action name="get_polyline_length" scope="localonly" args="hsname, retvar">
+			    copy(pnts, global.hotspot[get(hsname)].point);
+			    def(totallength, number, 0);
+			    for(set(i,0), i LT (pnts.count - 1), inc(i),
+			      copy(p1, pnts[get(i)]);
+			      copy(p2, pnts[calc(i+1)]);
+			      calc(dx, p2.ath - p1.ath);
+			      calc(dy, p2.atv - p1.atv);
+			      calc(length, (dx*dx + dy*dy) ^ 0.5 );
+			      add(totallength, length);
+			    );
+			    parentscopeset(get(retvar), get(totallength));
+			</action>
 
 			<!-- <action name="on_idle">
 				js(PanoInterface.on_idle(get(view.hlookat), get(view.vlookat), get(view.fov), get(pano_id)));
