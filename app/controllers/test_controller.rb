@@ -8,7 +8,7 @@ class TestController < ApplicationController
       cpu.push(job.split(' ')[2])
       memory.push(job.split(' ')[3])
     end
-    puts "delayed Job"
+    puts "delayed Job"   
     puts cpu.join(',')
     puts memory.join(',')
 
