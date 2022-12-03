@@ -11,3 +11,6 @@
 - backend後台
 - posts_CRUD
 - public前台
+
+# RSpec
+- spec/
