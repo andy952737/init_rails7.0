@@ -40,7 +40,7 @@ function krpanoReady(get_krpano) {
 
 	/* hotpsot 值從這帶入 */    
 	var hs_name = 'hs0001' // + ((Date.now() + Math.random()) | 0); 
-   	var url = '/icon/icon_hotspot.png'; 
+   	var url = '/icon/test_hotspot.png'; 
     var h = -0.900;
     var v = 56.800;    
 	var scene_page1 = "scene3";
